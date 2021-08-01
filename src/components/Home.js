@@ -121,7 +121,7 @@ class Home extends Component {
                             </div>
                         </li>
                     </ul>
-                    <h3>Discover More</h3>
+                    <h2>Discover More</h2>
                     <hr/>
                 </div>
             </div>

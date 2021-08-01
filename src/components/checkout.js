@@ -31,7 +31,7 @@ class Checkout extends Component {
                                             <h3>$200.00</h3>
                                         </td>
                                         <td>
-                                            <a href="#" className="btn btn-primary height-auto btn-sm">X</a>
+                                            <button>X</button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -48,7 +48,7 @@ class Checkout extends Component {
                                             <h3>$200.00</h3>
                                         </td>
                                         <td>
-                                            <a href="#" className="btn btn-primary height-auto btn-sm">X</a>
+                                            <button>X</button>
                                         </td>
                                     </tr>
                                 </tbody>

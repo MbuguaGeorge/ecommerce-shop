@@ -1,32 +1,28 @@
-import React,{useEffect,useState} from 'react';
-import Shop from './shop'
+import React from 'react';
 
-const Products = () => {
-
-    const[shop, setShop] = useState([]);
-
-    useEffect(() => {
-        getShop();
-    }, []);
-
-    const getShop = async() => {
-        const response = await fetch(`http://127.0.0.1:8000/products`);
-        const data = await response.json();
-        console.log(data)
-        setShop(data);
-    }
-
+const Products = ({category,image,price,name}) => {
     return(
         <div>
-            {shop.map(shops => (
-                <Shop 
-                    key = {shops.product_name}
-                    name = {shops.product_name}
-                    category = {shops.product_category}
-                    price = {shops.product_price}
-                    image = {shops.thumbnail}
-                 /> 
-            ))}  
+                <div className="shop__product">
+                    <div className="column">
+                        <div className="row">
+                            <div className="shop__product__page">
+                                <img src={image} alt="products"/>
+                                <div className="description">
+                                    <h5 className="product__category">{category}</h5>
+                                    <h4 className="product__type">{name}</h4>
+                                    <h3 className="product__price">{price}</h3>
+                                </div>
+                                <div className="save__item">
+                                    <i className="fa fa-heart"></i>
+                                </div>
+                                <div className="add__cart">
+                                    <button>Add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
     )
 }

@@ -1,6 +1,20 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
+import Products from './products'
 
-const Shop = ({category,image,price,name}) => {
+const Shop = () => {
+    const[shop, setShop] = useState([]);
+
+    useEffect(() => {
+        getShop();
+    }, []);
+
+    const getShop = async() => {
+        const response = await fetch(`http://127.0.0.1:8000/products`);
+        const data = await response.json();
+        console.log(data)
+        setShop(data);
+    }
+
         return(
             <div>
                 <div className="shop__category">
@@ -8,9 +22,9 @@ const Shop = ({category,image,price,name}) => {
 
                     <div className="shop__flex">
                         <div className="shop__filter">
-                            <div className="shop__category">
+                            <div className="shop_category">
                                 <h3>Categories</h3>
-                                <h5>Shoes</h5>
+                                <h5>Shoes</h5> 
                                 <h5>Clothing</h5>
                                 <h5>Accesories</h5>
                             </div>
@@ -39,29 +53,19 @@ const Shop = ({category,image,price,name}) => {
                             </div>
                         </div>
 
-                        <div className="shop__product">
-                            <div className="column">
-                                <div className="row">
-                                    <div className="shop__product__page">
-                                    <img src={image} alt="products"/>
-                                        <div className="description">
-                                            <h5 className="product__category">{category}</h5>
-                                            <h4 className="product__type">{name}</h4>
-                                            <h3 className="product__price">{price}</h3>
-                                        </div>
-                                        <div className="save__item">
-                                            <i className="fa fa-heart"></i>
-                                        </div>
-                                        <div className="add__cart">
-                                            <button>Add to cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    {shop.map(shops => (
+                        <Products
+                            key = {shops.product_name}
+                            name = {shops.product_name}
+                            category = {shops.product_category}
+                            price = {shops.product_price}
+                            image = {shops.thumbnail}
+                        />
+                    ))}
+
                     </div>
 
-                </div>
+                </div> 
             </div>
         )
     }
