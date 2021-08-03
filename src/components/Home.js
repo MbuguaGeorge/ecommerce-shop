@@ -8,8 +8,28 @@ import f1 from '../components/images/f1.jpg'
 import jacket from '../components/images/jacket.jpg'
 import clothes from '../components/images/cloth.jpg'
 import nike from '../components/images/nike.jpg'
+import axios from 'axios';
 
 class Home extends Component {
+
+    componentDidMount(){
+
+        const config = {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('token')
+            }
+        }
+
+        axios.get(`http://localhost:8000/user`,config).then(
+            res => {
+                console.log(res)
+            },
+            err => {
+                console.log(err)
+            }
+        )
+    }
+
     render() {
         return(
             <div>
