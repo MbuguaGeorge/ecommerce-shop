@@ -56,8 +56,7 @@ class Login extends Component{
                     res.json().then(data => {
                         console.log(data)
                         if (data.token){
-                            localStorage.setItem('token', data.token)
-                            
+                            localStorage.setItem('token', data.token)  
                         }
                         if(!data.token){
                             localStorage.setItem('token', data.error)

@@ -1,8 +1,57 @@
 import React, { Component } from 'react'
 import user from '../components/images/user.png'
+import axios from 'axios'
+import cart from '../components/images/shopping-bag.png'
 
 export class Header extends Component {
+
+    state = {};
+
+    componentDidMount(){
+
+        axios.get('http://localhost:8000/cur/').then(
+            res => {
+                this.setState({
+                    user: res.data
+                })
+            },
+            err => {
+                console.log(err)
+            }
+        )
+    }
+
+
     render() {
+        
+        let button;
+
+        if (this.state.user){
+            button = (
+                <div className="user__detail">
+                    <ul>
+                        <li>
+                            <a href="/checkout">
+                                <h4><img src={cart} alt="user profile" width="20px" /></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/checkout">
+                                <i className="fa fa-heart"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            )
+        }
+        else{
+            button = (
+                <a href="/Login">
+                    <h4><img src={user} alt="user profile" width="13px" /> Login</h4>
+                </a>
+            )
+        }
+
         return (
             <div>
                 <div className="nav">
@@ -16,9 +65,7 @@ export class Header extends Component {
                     />
                     <button><i className="fa fa-search"></i></button>
                     </form>
-                    <a href="/Login">
-                        <h4><img src={user} alt="user profile" width="13px" /> Login</h4>
-                    </a>
+                    {button}
                 </div>
                 <div className="header">
                     <ul>

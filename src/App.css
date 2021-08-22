@@ -647,3 +647,20 @@
   font-weight: 700;
   text-align: center;
 }
+.user__detail ul{
+  display: flex;
+  justify-content: space-between;
+}
+.user__detail ul li{
+  list-style: none;
+  padding-right: 16px;
+}
+.user__detail ul li a i{
+  width: 55px;
+  line-height: 25px;
+  height: 25px;
+  color: #ddd;
+}
+.user__detail ul li a h4 img{
+  line-height: 20px;
+}

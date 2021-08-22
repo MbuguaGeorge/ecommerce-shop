@@ -55,7 +55,8 @@ const Shop = () => {
 
                     {shop.map(shops => (
                         <Products
-                            key = {shops.product_name}
+                            key = {shops.id}
+                            pk = {shops.id}
                             name = {shops.product_name}
                             category = {shops.product_category}
                             price = {shops.product_price}

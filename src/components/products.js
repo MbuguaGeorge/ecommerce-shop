@@ -1,9 +1,40 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 
-const Products = ({category,image,price,name}) => {
-    return(
-        <div>
-                <div className="shop__product">
+const Products = ({category,image,price,name,pk}) => {
+
+    const[user, setUser] = useState();
+    const[cart, setCart] = useState([])
+
+    useEffect(() => {
+        
+        axios.get('http://localhost:8000/cur/').then(
+            res => {
+                setUser({user: res.data})
+            },
+            err => { 
+                console.log(err)
+            }
+        )
+    },[]);
+
+    const handleClick = () => {
+        if (user){
+            axios.get(`http://localhost:8000/add/${pk}/`).then(
+                res => {
+                    setCart({cart: res.data})
+                }
+            )
+        }
+    }
+
+    console.log(cart)
+    let button;
+
+    if (user){
+        button = (
+            <div>
+                <div className="shop__product"> 
                     <div className="column">
                         <div className="row">
                             <div className="shop__product__page">
@@ -17,12 +48,23 @@ const Products = ({category,image,price,name}) => {
                                     <i className="fa fa-heart"></i>
                                 </div>
                                 <div className="add__cart">
-                                    <button>Add to cart</button>
-                                </div>
+                                    <button onClick={handleClick} >Add to cart</button>
+                                </div> 
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        )
+    }else{
+        button = (
+            <div>log in</div>
+        )
+    }
+    
+    return(
+        <div>
+            {button}
         </div>
     )
 }
