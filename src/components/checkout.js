@@ -20,12 +20,8 @@ class Checkout extends Component {
                 console.log(err)
             }
         )
-    
-    };
 
-    componentDidUpdate(){
-
-        axios.get(`http://localhost:8000/cart/`).then(
+        axios.get('http://localhost:8000/cart/').then(
             res => { 
                 this.setState({
                     cart: res.data.cart.product
@@ -35,8 +31,8 @@ class Checkout extends Component {
                 console.log(err)
             }
         )
-        
-    };
+    
+    }
 
     render() {
         console.log(this.state.cart)
@@ -45,13 +41,37 @@ class Checkout extends Component {
         if (this.state.user){
             button = (
                 <div>
-                    {this.state.cart.map(items => (
-                        <Cart 
-                            key = {items.product_name}
-                            name = {items.product_name}
-                            price = {items.product_price}
-                        />
-                    ))}
+                    <form>
+                        <div className="checkout">
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th>Remove</th>
+                                    </tr> 
+                                </thead>
+                                {this.state.cart.map(items => (
+                                    <Cart 
+                                        key = {items.product_name}
+                                        name = {items.product_name}
+                                        price = {items.product_price}
+                                    />
+                                ))}
+                            </table>
+                            <div className="proceed">
+                                <h4>Cart totals</h4>
+                                <hr/>
+                                <div className="total">
+                                    <h5>Total</h5>
+                                    <h5>$250.00</h5>
+                                </div>
+                                <button>Proceed to checkout</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             )
         }

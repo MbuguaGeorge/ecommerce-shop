@@ -597,12 +597,12 @@
   font-weight: 600;
 }
 .table{
-  width: 80%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
 }
 .proceed{
-  margin-left: 130px;
+  margin-left: 200px;
   margin-top: 50px;
 }
 .proceed hr{
@@ -663,4 +663,10 @@
 }
 .user__detail ul li a h4 img{
   line-height: 20px;
+}
+.t-detail table{
+  width: 100%;
+}
+.t-detail tbody tr td{
+  width: 20%;
 }

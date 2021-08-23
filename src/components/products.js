@@ -4,7 +4,8 @@ import axios from 'axios';
 const Products = ({category,image,price,name,pk}) => {
 
     const[user, setUser] = useState();
-    const[cart, setCart] = useState([])
+    const[cart, setCart] = useState([]);
+    const[store, setStore] = useState([]);
 
     useEffect(() => {
         
@@ -15,7 +16,14 @@ const Products = ({category,image,price,name,pk}) => {
             err => { 
                 console.log(err)
             }
+        );
+
+        axios.get('http://localhost:8000/cart/').then(
+            res => {
+                setStore({store: res.data.cart.product})
+            }
         )
+
     },[]);
 
     const handleClick = () => {
@@ -28,8 +36,25 @@ const Products = ({category,image,price,name,pk}) => {
         }
     }
 
-    console.log(cart)
+    console.log(store)
     let button;
+    let store_item;
+
+    if (store){
+        store_item = (
+            <div className="add__cart">
+                <a href="/checkout">
+                    <button>Go to cart</button>
+                </a>
+            </div> 
+        )
+    }else {
+        store_item = (
+            <div className="add__cart">
+                <button onClick={handleClick} >Add to cart</button>
+            </div> 
+        )
+    }
 
     if (user){
         button = (
@@ -47,9 +72,7 @@ const Products = ({category,image,price,name,pk}) => {
                                 <div className="save__item">
                                     <i className="fa fa-heart"></i>
                                 </div>
-                                <div className="add__cart">
-                                    <button onClick={handleClick} >Add to cart</button>
-                                </div> 
+                                {store_item}
                             </div>
                         </div>
                     </div>
