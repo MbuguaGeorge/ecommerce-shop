@@ -56,6 +56,7 @@ class Checkout extends Component {
                                 {this.state.cart.map(items => (
                                     <Cart 
                                         key = {items.product_name}
+                                        pk = {items.id}
                                         name = {items.product_name}
                                         price = {items.product_price}
                                     />

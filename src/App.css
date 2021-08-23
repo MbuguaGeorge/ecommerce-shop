@@ -643,6 +643,7 @@
   border: 1px solid #007bff;
   border-radius: 2px;
   color: #f9f9f9;
+  cursor: pointer;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 700;
   text-align: center;
