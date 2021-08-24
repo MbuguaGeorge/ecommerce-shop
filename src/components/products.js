@@ -36,7 +36,9 @@ const Products = ({category,image,price,name,pk}) => {
         }
     }
 
-    console.log(store)
+    const items = store
+
+    console.log(items)
     let button;
     let store_item;
 

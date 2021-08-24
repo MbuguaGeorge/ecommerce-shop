@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import axios from 'axios'
 
-const Cart = ({name, price, pk}) => {
+const Cart = ({name, price, pk, image, category}) => {
 
     const[cart, setCart] = useState([]);
     const[user, setUser] = useState();
@@ -35,16 +35,17 @@ const Cart = ({name, price, pk}) => {
                 <tbody>
                     <tr>
                         <td>
-                            <h3>{name}</h3>
+                            <img src={image} alt="product image" width="100px"/>
                         </td>
                         <td>
-                            <h3>{price} ksh</h3>
+                            <h4>{category}</h4>
+                            <h3>{name}</h3>
                         </td>
                         <td>
                             5
                         </td>
                         <td>
-                            <h3>$200.00</h3>
+                            <h3>{price} ksh</h3>
                         </td>
                         <td>
                             <button onClick={handleClick} >X</button>

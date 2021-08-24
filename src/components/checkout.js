@@ -44,21 +44,14 @@ class Checkout extends Component {
                     <form>
                         <div className="checkout">
                             <table className="table">
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
-                                        <th>Remove</th>
-                                    </tr> 
-                                </thead>
                                 {this.state.cart.map(items => (
                                     <Cart 
                                         key = {items.product_name}
                                         pk = {items.id}
                                         name = {items.product_name}
                                         price = {items.product_price}
+                                        category = {items.product_category}
+                                        image = {items.thumbnail}
                                     />
                                 ))}
                             </table>
@@ -66,7 +59,7 @@ class Checkout extends Component {
                                 <h4>Cart totals</h4>
                                 <hr/>
                                 <div className="total">
-                                    <h5>Total</h5>
+                                    <h5>Total</h5> 
                                     <h5>$250.00</h5>
                                 </div>
                                 <button>Proceed to checkout</button>

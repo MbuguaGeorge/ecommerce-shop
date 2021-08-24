@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import user from '../components/images/user.png'
 import axios from 'axios'
 import cart from '../components/images/shopping-bag.png'
+import save from '../components/images/heart.png'
 
-export class Header extends Component {
+class Header extends Component {
 
     state = {};
 
@@ -32,12 +33,12 @@ export class Header extends Component {
                     <ul>
                         <li>
                             <a href="/checkout">
-                                <h4><img src={cart} alt="user profile" width="20px" /></h4>
+                                <h4><img src={cart} alt="shopping cart" width="17px" /></h4>
                             </a>
                         </li>
                         <li>
                             <a href="/checkout">
-                                <i className="fa fa-heart"></i>
+                            <h4><img src={save} alt="favourite" width="17px" /></h4>
                             </a>
                         </li>
                     </ul>
