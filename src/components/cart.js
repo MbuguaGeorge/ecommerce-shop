@@ -35,7 +35,7 @@ const Cart = ({name, price, pk, image, category}) => {
                 <tbody>
                     <tr>
                         <td>
-                            <img src={image} alt="product image" width="100px"/>
+                            <img src={`http://localhost:8000${image}`} alt="product image" width="100px"/>
                         </td>
                         <td>
                             <h4>{category}</h4>

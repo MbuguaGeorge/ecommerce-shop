@@ -6,7 +6,9 @@ import save from '../components/images/heart.png'
 
 class Header extends Component {
 
-    state = {};
+    state = {
+        cart: [],
+    };
 
     componentDidMount(){
 
@@ -20,11 +22,23 @@ class Header extends Component {
                 console.log(err)
             }
         )
+
+        axios.get('http://localhost:8000/cart/').then(
+            res => { 
+                this.setState({
+                    cart: res.data.cart.product
+                })
+            },
+            err => {
+                console.log(err)
+            }
+        )
     }
 
 
     render() {
-        
+        const cartNo = this.state.cart.length
+      
         let button;
 
         if (this.state.user){
@@ -34,6 +48,7 @@ class Header extends Component {
                         <li>
                             <a href="/checkout">
                                 <h4><img src={cart} alt="shopping cart" width="17px" /></h4>
+                                <span className="number">{cartNo}</span>
                             </a>
                         </li>
                         <li>

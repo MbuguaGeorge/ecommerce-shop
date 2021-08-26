@@ -59,8 +59,8 @@ const Shop = () => {
                             pk = {shops.id}
                             name = {shops.product_name}
                             category = {shops.product_category}
-                            price = {shops.product_price}
                             image = {shops.thumbnail}
+                            price = {shops.product_price}
                         />
                     ))}
 
