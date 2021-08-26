@@ -5,6 +5,7 @@ const Cart = ({name, price, pk, image, category}) => {
 
     const[cart, setCart] = useState([]);
     const[user, setUser] = useState();
+    const[count, setCount] = useState(1);
 
     useEffect(() => {
 
@@ -18,6 +19,16 @@ const Cart = ({name, price, pk, image, category}) => {
         );
 
     }, []);
+
+    const incrementCount = (event) =>{
+        event.preventDefault()
+        setCount(count + 1)
+    }
+
+    const decrementCount = (event) =>{
+        event.preventDefault()
+        setCount(count - 1)
+    }
 
     const handleClick = () => {
         if (user){
@@ -42,7 +53,17 @@ const Cart = ({name, price, pk, image, category}) => {
                             <h3>{name}</h3>
                         </td>
                         <td>
-                            5
+                            <div className="table_category">
+                                <div>
+                                    <button onClick={decrementCount} >-</button>
+                                </div>
+                                <div>
+                                    <input type="text" value={count}/>
+                                </div>
+                                <div>
+                                    <button onClick={incrementCount}>+</button>
+                                </div>
+                            </div>
                         </td>
                         <td>
                             <h3>{price} ksh</h3>

@@ -678,11 +678,50 @@
   height: 18px;
   width: 18px;
   font-size: 12px;
-  top: 30px;
+  top: 29px;
   right: 260px;
   line-height: 18px;
   background-color: #ff084e;
   border-radius: 50%;
   color: white;
   text-align: center;
+}
+.user__detail ul li a .favourite{
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  font-size: 12px;
+  top: 29px;
+  right: 225px;
+  line-height: 18px;
+  background-color: #ff084e;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+}
+.table_category{
+  display: flex;
+}
+.table_category input[type=text]{
+  width: 55px;
+  outline: none;
+  text-align: center;
+  font-size: 1rem;
+  color: #495057;
+  background-color: white;
+  padding: 11px 8px;
+  border: 1px solid #ced4da;
+}
+.table_category button{
+  text-align: center;
+  padding: 10px 12px;
+  background-color: transparent;
+  color: #ff084e;
+  border-color: #ff084e;
+  border-radius: 3px;
+  font-size: 1.1rem;
+}
+.table_category button:hover{
+  background-color: #ff084e;
+  color: white;
 }
