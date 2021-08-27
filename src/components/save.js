@@ -5,11 +5,11 @@ class Favourite extends Component {
     render(){
         return(
             <div>
-                <div className="shop__product"> 
+                <div className="saved__product"> 
                     <div className="column">
                         <div className="row">
-                            <div className="shop__product__page">
-                                <img src={image} alt="products" width="250px" height="340px"/>
+                            <div className="saved__product__page">
+                                <img src={image} alt="products" width="210px" height="280px"/>
                                 <div className="description">
                                     <h5 className="product__category">SHOES</h5>
                                     <h4 className="product__type">Nike Shoes</h4>

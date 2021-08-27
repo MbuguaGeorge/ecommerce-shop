@@ -238,11 +238,20 @@
   color: white;
   font-weight: 700;
 }
+.saved__product .add__cart button{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  border: 1px solid #007bff;
+  background: #007bff;
+  color: white;
+  font-weight: 700;
+}
 .popular .add__cart button:hover{
   background-color: #ff084e;
   border: 1px #ff084e solid;
 }
-.shop__product button:hover{
+.shop__product button:hover, .saved__product button:hover{
   background-color: #ff084e;
   border: 1px #ff084e solid;
 }
@@ -253,10 +262,20 @@
   left: 50%;
   transform: translate(-50%,-50%);
 }
+.saved__product .add__cart{
+  display: none;
+  position: absolute;
+  top: 68%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
 .popular ul li:hover .add__cart{
   display: flex;
 }
 .shop__product__page:hover .add__cart{
+  display: flex;
+}
+.saved__product__page:hover .add__cart{
   display: flex;
 }
 .popular ul li:hover .save__item{
@@ -290,6 +309,17 @@
   text-align: right;
   cursor: pointer;
   display: none;
+}
+.saved__product .save__item{
+  position: absolute;
+  top: 3%;
+  right: 8%;
+  text-align: right;
+  cursor: pointer;
+  display: flex;
+}
+.saved__product .save__item .fa{
+  color: #ff084e !important;
 }
 .popular .fa:active{
   color: #ff084e !important;
@@ -562,7 +592,9 @@
 .shop__product__page{
   position: relative;
 }
-
+.saved__product__page{
+  position: relative;
+}
 /** checkout **/
 
 .checkout{
@@ -635,8 +667,8 @@
 }
 .table button{
   padding: 2px 5px;
-  background-color: #007bff;
-  border: 1px solid #007bff;
+  background-color: #ee4266;
+  border: 1px solid #ee4266;
   border-radius: 2px;
   color: #f9f9f9;
   cursor: pointer;

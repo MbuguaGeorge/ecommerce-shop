@@ -52,7 +52,7 @@ class Header extends Component {
                             </a>
                         </li>
                         <li>
-                            <a href="/checkout">
+                            <a href="/saved">
                             <h4><img src={save} alt="favourite" width="17px" /></h4>
                             <span className="favourite">10</span>
                             </a>

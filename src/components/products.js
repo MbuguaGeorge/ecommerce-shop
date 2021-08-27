@@ -6,6 +6,7 @@ const Products = ({category,image,price,name,pk}) => {
     const[user, setUser] = useState();
     const[cart, setCart] = useState([]);
     const[store, setStore] = useState([]);
+    const[save, setSave] = useState([]);
 
     useEffect(() => {
         
@@ -36,9 +37,19 @@ const Products = ({category,image,price,name,pk}) => {
         }
     }
 
+    const handleSave = () => {
+        if (user){
+            axios.get(`http://localhost:8000/save/${pk}/`).then(
+                res => {
+                    setSave({save: res.data})
+                }
+            )
+        }
+    }
+
     const items = store
 
-    console.log(items)
+    console.log(save)
     let button;
     let store_item;
 
@@ -72,7 +83,7 @@ const Products = ({category,image,price,name,pk}) => {
                                     <h3 className="product__price">{price}</h3>
                                 </div>
                                 <div className="save__item">
-                                    <i className="fa fa-heart"></i>
+                                    <i className="fa fa-heart" onClick={handleSave}></i>
                                 </div>
                                 {store_item}
                             </div>

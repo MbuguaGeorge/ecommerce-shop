@@ -22,12 +22,12 @@ const Cart = ({name, price, pk, image, category}) => {
 
     const incrementCount = (event) =>{
         event.preventDefault()
-        setCount(count + 1)
+        setCount(count => count + 1,)
     }
 
     const decrementCount = (event) =>{
         event.preventDefault()
-        setCount(count - 1)
+        setCount(count => Math.max(count - 1, 1))
     }
 
     const handleClick = () => {
@@ -46,7 +46,7 @@ const Cart = ({name, price, pk, image, category}) => {
                 <tbody>
                     <tr>
                         <td>
-                            <img src={`http://localhost:8000${image}`} alt="product image" width="100px"/>
+                            <img src={`http://localhost:8000${image}`} alt="product image" width="80px"/>
                         </td>
                         <td>
                             <h4>{category}</h4>
@@ -78,4 +78,4 @@ const Cart = ({name, price, pk, image, category}) => {
     )
 }
 
-export default Cart;
+export default Cart; 
