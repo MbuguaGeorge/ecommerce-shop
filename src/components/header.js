@@ -8,6 +8,7 @@ class Header extends Component {
 
     state = {
         cart: [],
+        favourite: [],
     };
 
     componentDidMount(){
@@ -33,10 +34,19 @@ class Header extends Component {
                 console.log(err)
             }
         )
+
+        axios.get(`http://localhost:8000/favourite/`).then(
+            res => {
+                this.setState({
+                    favourite : res.data.favourite.product
+                })
+            }
+        )
     }
 
 
     render() {
+        const favouriteNo = this.state.favourite.length
         const cartNo = this.state.cart.length
       
         let button;
@@ -54,7 +64,7 @@ class Header extends Component {
                         <li>
                             <a href="/saved">
                             <h4><img src={save} alt="favourite" width="17px" /></h4>
-                            <span className="favourite">10</span>
+                            <span className="favourite">{favouriteNo}</span>
                             </a>
                         </li>
                     </ul>

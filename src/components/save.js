@@ -1,8 +1,35 @@
 import React, {Component} from 'react';
 import image from '../components/images/f1.jpg'
+import axios from 'axios';
 
 class Favourite extends Component {
+    state = {};
+
+    componentDidMount(){
+
+        axios.get('http://localhost:8000/cur/').then(
+            res => {
+                this.setState({
+                    user: res.data
+                })
+            },
+            err => {
+                console.log(err)
+            }
+        )
+
+        axios.get(`http://localhost:8000/favourite/`).then(
+            res => {
+                this.setState({
+                    favourite : res.data.favourite.product
+                })
+            }
+        )
+
+    }
+
     render(){
+        console.log(this.state.favourite)
         return(
             <div>
                 <div className="saved__product"> 
