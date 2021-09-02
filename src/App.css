@@ -238,7 +238,7 @@
   color: white;
   font-weight: 700;
 }
-.saved__product .add__cart button{
+.saved__product .add__cart button, .saved__product .add__to__cart button{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   text-transform: uppercase;
   padding: 8px 10px;
@@ -246,6 +246,7 @@
   background: #007bff;
   color: white;
   font-weight: 700;
+  cursor: pointer;
 }
 .popular .add__cart button:hover{
   background-color: #ff084e;
@@ -269,6 +270,13 @@
   left: 50%;
   transform: translate(-50%,-50%);
 }
+.saved__product .add__to__cart{
+  display: none;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
 .popular ul li:hover .add__cart{
   display: flex;
 }
@@ -276,6 +284,9 @@
   display: flex;
 }
 .saved__product__page:hover .add__cart{
+  display: flex;
+}
+.saved__product__page:hover .add__to__cart{
   display: flex;
 }
 .popular ul li:hover .save__item{
@@ -318,6 +329,21 @@
   cursor: pointer;
   display: flex;
 }
+.saved__product .new__item{
+  position: absolute;
+  top: 3%;
+  right: 8%;
+  display: flex;
+}
+.new__item{
+  width: 40px;
+  height: 25px;
+  padding: 6px 7px;
+  line-height: 10px;
+  color: #f9f9f9;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+}
 .saved__product .save__item .fa{
   color: #ff084e !important;
 }
@@ -335,6 +361,36 @@
   color: darkgoldenrod
 }
 /* signup */
+.forms a{
+padding-right: 10px;
+}
+.forms a .log{
+  padding: 8px 12px;
+  background-color: #ddd;
+  cursor: pointer;
+  color: black;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.forms a .sign{
+  padding: 8px 8px;
+  background-color: #434445;
+  cursor: pointer;
+  color: white;
+  border: 1px solid #434343;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.forms a .sign:hover{
+  color: white;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+}
+.forms a .log:hover{
+  color: white;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+}
 
 .error h5{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -697,7 +753,7 @@
   width: 100%;
 }
 .t-detail tbody tr td{
-  width: 30%;
+  width: 15%;
 }
 .t-detail tbody tr td h4{
   color: #ddd;

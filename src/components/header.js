@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import user from '../components/images/user.png'
 import axios from 'axios'
 import cart from '../components/images/shopping-bag.png'
 import save from '../components/images/heart.png'
@@ -73,9 +72,14 @@ class Header extends Component {
         }
         else{
             button = (
-                <a href="/Login">
-                    <h4><img src={user} alt="user profile" width="13px" /> Login</h4>
-                </a>
+                <div className="forms">
+                    <a href="/Login">
+                        <button className="log">Login</button>
+                    </a>
+                    <a href ="/signup">
+                        <button className="sign">Sign up</button>
+                    </a>
+                </div>
             )
         }
 
@@ -103,7 +107,7 @@ class Header extends Component {
                             <a href="/shop">Shop</a>
                         </li>
                         <li>
-                            <a href="/">New Arrivals</a>
+                            <a href="/new">New Arrivals</a>
                         </li>
                         <li>
                             <a href="/">About</a>

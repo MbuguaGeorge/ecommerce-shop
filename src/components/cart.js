@@ -39,6 +39,9 @@ const Cart = ({name, price, pk, image, category}) => {
             )
         }
     }
+    
+    let total;
+    total = price * count
 
     return(
         <div>
@@ -51,6 +54,9 @@ const Cart = ({name, price, pk, image, category}) => {
                         <td>
                             <h4>{category}</h4>
                             <h3>{name}</h3>
+                        </td>
+                        <td>
+                            <h3>{price} ksh</h3>
                         </td>
                         <td>
                             <div className="table_category">
@@ -66,7 +72,7 @@ const Cart = ({name, price, pk, image, category}) => {
                             </div>
                         </td>
                         <td>
-                            <h3>{price} ksh</h3>
+                            <h3>{total} ksh</h3>
                         </td>
                         <td>
                             <button onClick={handleClick} >X</button>

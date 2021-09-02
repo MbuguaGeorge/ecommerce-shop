@@ -51,7 +51,7 @@ const Shop = () => {
                                 <h5>Chanel</h5>
                                 <h5>Gucci</h5>
                             </div>
-                        </div>
+                        </div> 
 
                     {shop.map(shops => (
                         <Products
